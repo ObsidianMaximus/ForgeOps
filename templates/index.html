@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Krishna Yadav - Resume</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left"><strong>KRISHNA YADAV</strong>
+      <button id="theme-toggle" title="Toggle dark mode">🌙</button>
+
+    </div>
+    <div class="nav-center">
+      <a href="#summary">Summary</a> 
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+    </div>
+    <div class="nav-right">
+      🙎🏻 Visitors: <span id="visitor-count">...</span>
+    </div>
+  </nav>
+
+  <!-- Content Container -->
+  <div class="container">
+
+    <section id="summary">
+  <h2>Summary</h2>
+  <p>
+    I’m <strong>Krishna Yadav</strong>, a DevOps and Cloud Engineering enthusiast with a strong foundation in containerization,
+    CI/CD pipelines, infrastructure-as-code, and observability. I specialize in building scalable, resilient,
+    and cost-efficient cloud-native systems. Passionate about automation, open-source collaboration, and delivering
+    systems that just don’t break.
+  </p>
+</section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Location: Lucknow, Uttar Pradesh, India, 226029</p>
+      <p>Email: <a href="mailto:yadav.krishna.tech@gmail.com">yadav.krishna.tech@gmail.com</a></p>
+      <p>
+        <a href="https://www.linkedin.com/in/krishnayadavxyz/" target="_blank">LinkedIn</a> •
+        <a href="https://github.com/ObsidianMaximus" target="_blank">GitHub</a> •
+        <a href="https://krishnayadav.xyz" target="_blank">Portfolio</a>
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <p><strong>Elevate Labs</strong> (May 2025 – July 2025) — DevOps Intern</p>
+      <ul>
+        <li>Engineered a Micro-Services architecture that detects and remediates failed services in under 60 seconds using Prometheus, Alertmanager, Flask, and Ansible.</li>
+        <li>Achieved 100% automated recovery from NGINX application outages, reducing downtime and manual intervention by over 95%.</li>
+        <li>Improved system resilience and uptime by enabling real-time monitoring, instant alerting, and zero-touch remediation across 5+ integrated containers.</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p><strong>AI Resume Builder</strong> — <a href="https://github.com/ObsidianMaximus/Kenshi-Resumes-AI-Powered" target="_blank">[GitHub]</a> <a href="https://kenresume.krishnayadav.xyz" target="_blank">[Live]</a></p>
+      <ul>
+        <li>Architected a containerized CI/CD pipeline for an AI-powered resume builder, reducing Docker image size by 95% with multi-stage builds and automating deployments using GitHub Actions.</li>
+        <li>Provisioned AWS infrastructure with Terraform, deploying SSM-managed EC2 instances to enable remote container updates without SSH access.</li>
+        <li>Implemented incremental deployments to ensure zero-downtime rollouts, cutting deployment time by 40% and improving release reliability.</li>
+      </ul>
+
+      <p><strong>Custom AOSP ROM Development & Maintenance</strong> — <a href="https://github.com/stars/ObsidianMaximus/lists/realme-gt-neo-2-bitra" target="_blank">[GitHub]</a></p>
+      <ul>
+        <li>Maintained a custom AOSP ROM (crDroid) with device-specific optimizations, upstream Android (13–15) security patches, and open-source driver support.</li>
+        <li>Delivered OTA updates and hotfixes to 2300+ users, reducing bug reports by 40%.</li>
+        <li>Cut build times by 50% via Dockerized AOSP compilation and authored detailed community documentation to encourage open-source collaboration.</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p><strong>Languages:</strong> C, C++, Java, Python, Bash, SQL</p>
+      <p><strong>Cloud Platforms:</strong> AWS, Azure, GCP</p>
+      <p><strong>DevOps & Automation:</strong> Docker, Kubernetes, Git, GitHub Actions, Terraform, Ansible, Jenkins, Prometheus, Linux</p>
+    </section>
+
+    <section id="achievements">
+      <h2>Certifications & Achievements</h2>
+      <ul>
+        <li>AWS Certified Solutions Architect Associate – <a href="https://www.udemy.com/certificate/UC-2a3e4680-33d1-4721-a222-b67407ee2f11/" target="_blank">Certificate</a></li>
+        <li>Oracle Cloud MySQL Certified Associate – <a href="https://drive.google.com/file/d/1BVTMOZ45M9ubJi42N2wNQRtMAfEwKD9-/view" target="_blank">Certificate</a></li>
+        <li>Google Cloud Foundations – IIT Kharagpur – <a href="https://drive.google.com/file/d/1OWZ69If-IVlqenh7VQ4mL5ig_lXYJhjA/view?usp=sharing" target="_blank">Ranked 2nd</a></li>
+        <li>Embedded Security CTF – IIT Madras – <a href="https://drive.google.com/file/d/1ibk0RifFusYC17S82f7oQq5G1pJR7t7g/view?usp=sharing" target="_blank">Certificate</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Visitor Count JS -->
+  <script src="{{ url_for('static', filename='js/visitor.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/theme-toggle.js') }}"></script>
+</body>
+</html>
