@@ -21,27 +21,25 @@ def lambda_handler(event, context):
         }
 
     hashed_ip = hashlib.sha256(ip.encode()).hexdigest()
-    pk_ip = f"IP#{hashed_ip}"
-    pk_counter = "COUNTER#global"
+    ip_hashed_key = f"IP#{hashed_ip}"
+    counter_key = "COUNTER#global"
+    
 
     try:
-        # Check if IP has already visited recently
-        response = table.get_item(Key={"pk": pk_ip})
-        if "Item" not in response:
-            # New visitor — log hashed IP with TTL
-            ttl = int(time.time()) + TTL_DURATION
-            table.put_item(Item={"pk": pk_ip, "ttl": ttl})
+        response = table.get_item(Key={"ip": ip_hashed_key})
 
-            # Increment the global counter
+        if "Item" not in response:
+            ttl = int(time.time()) + TTL_DURATION
+            table.put_item(Item={"ip": ip_hashed_key, "ttl": ttl})
+        
             table.update_item(
-                Key={"pk": pk_counter},
+                Key={"ip": counter_key},
                 UpdateExpression="SET #c = if_not_exists(#c, :zero) + :one",
                 ExpressionAttributeNames={"#c": "count"},
                 ExpressionAttributeValues={":zero": 0, ":one": 1}
             )
-
-        # Get the updated count
-        result = table.get_item(Key={"pk": pk_counter})
+        
+        result = table.get_item(Key={"ip": counter_key})
         count = result.get("Item", {}).get("count", 0)
 
         return {
