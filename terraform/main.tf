@@ -62,7 +62,16 @@ resource "aws_lambda_function" "visitor_counter" {
 resource "aws_apigatewayv2_api" "visitor_api" {
   name          = "visitor-count-api"
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_origins = ["*"]
+    allow_methods = ["GET"]
+    allow_headers = ["*"]
+    expose_headers = []
+    max_age = 3600
+  }
 }
+
 
 resource "aws_apigatewayv2_integration" "lambda_integration" {
   api_id             = aws_apigatewayv2_api.visitor_api.id
