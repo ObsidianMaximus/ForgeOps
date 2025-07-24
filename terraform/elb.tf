@@ -1,7 +1,7 @@
 resource "aws_lb" "app" {
   name               = "forgeops-alb"
   load_balancer_type = "application"
-  subnets            = [aws_subnet.public_a.id, aws_subnet.public_b.id]
+  subnets = data.aws_subnets.public.ids
   security_groups    = [aws_security_group.alb_sg.id]
 }
 

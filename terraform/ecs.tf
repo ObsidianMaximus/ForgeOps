@@ -33,7 +33,7 @@ resource "aws_ecs_service" "main" {
   task_definition = aws_ecs_task_definition.app.arn
 
   network_configuration {
-    subnets          = [aws_subnet.private_a.id, aws_subnet.private_b.id]
+    subnets = data.aws_subnets.public.ids
     security_groups  = [aws_security_group.ecs_sg.id]
     assign_public_ip = false
   }
